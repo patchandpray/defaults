@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/tim/django/tvdkeer.nl/blog/static/css'
+let g:netrw_dirhist_2='/home/tim'
+let g:netrw_dirhist_3='/home/tim/.vim'
+let g:netrw_dirhist_4='/home/tim/dev_ansible/proxmox_container/inventories'
+let g:netrw_dirhist_5='/home/tim/python_projects/aws-python-sample'

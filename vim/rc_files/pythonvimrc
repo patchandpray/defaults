@@ -1,0 +1,75 @@
+set nocompatible            " required
+filetype off                " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Add all plugins below
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Townk/vim-autoclose'
+
+call vundle#end()           " required
+filetype plugin indent on   " required
+
+" split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" code folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
+" custom autoindent for *.py files
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+"    \ set softtabstop=4
+"    \ set shiftwidth=4
+"    \ set textwidth=79
+"    \ set expandtab
+"    \ set autoindent
+"    \ set fileformat=unix
+
+" normal autoindent
+set tabstop=4
+set softtabstop=4
+
+" flag whitespace
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+set encoding=utf-8
+
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" VirtualEnv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" Syntax highlighting/checking
+let python_hightlight_all=1
+syntax on
+
+
+set nu
+set background=dark
+set showcmd
+set showmatch
+
